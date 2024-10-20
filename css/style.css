@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: white;
 }
 
 .container .btn {
@@ -45,6 +46,20 @@ section.bg-primary h1 {
     color: lightblue;
 }
 
+#produkty .price {
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+#table thead:hover, tr:hover {
+    background-color: lightblue;
+    transform: scale(1.05);
+}
+
+#table tr {
+    padding: 10px;
+}
 .form-group {
     margin-bottom: 20px;
 }
@@ -74,4 +89,25 @@ section.bg-primary h1 {
     padding: 10px;
     border: 1px solid;
     border-radius: 10px;
+}
+
+.custom-registration-form {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid;
+    border-radius: 5px;
+    margin: 20px auto;
+}
+
+.footer {
+    background-color: black;
+    color: white;
+    margin-bottom: 0;
+}
+.upper {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.lower {
+    margin-bottom: 0;
 }
