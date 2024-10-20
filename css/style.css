@@ -5,6 +5,9 @@ body {
     background-color: white;
 }
 
+.active {
+    color: white !important;
+}
 .container .btn {
     margin-top: 25px;
     padding: 10px 20px;
