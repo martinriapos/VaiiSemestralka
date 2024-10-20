@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container .btn {
+    margin-top: 25px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+}
+
+.container .btn:hover {
+    background-color: black;
+}
+
+section.bg-primary {
+    background-image: url('../images/barbarclub2.jpg');
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+section.bg-primary h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#produkty h2 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#produkty .card:hover {
+    transform: scale(1.05);
+}
+
+#produkty .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: lightblue;
+}
