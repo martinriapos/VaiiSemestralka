@@ -1,10 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>E-shop - Posilkaris</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<!-- Tlačítka pomocou ktorých je navigácia -->
+<div class="container py-3">
+    <div class="d-flex justify-content-center">
+        <a href="index.html" class="btn btn-primary me-2">Domov</a>
+        <a href="#" class="btn btn-secondary me-2">Registracia</a>
+        <a href="#" class="btn btn-secondary">Kontakt</a>
+    </div>
+</div>
+
+
+<!-- Úvod stránky -->
+<section class="bg-primary  text-white text-center py-5">
+    <div class="container">
+        <h1>Vitajte v našom E-shope Posilkaris.</h1>
+        <p class="podnadpis">Najlepšie produkty ktoré nájdete pre cvičenie a stravu.</p>
+    </div>
+</section>
+
+<!-- Odporúčané produkty -->
+<section id="produkty" class="py-5">
+    <div class="container">
+        <h2 class="text-center">Odporúčané produkty</h2>
+        <div class="row">
+            <!-- Produkt 1 -->
+            <div class="col">
+                <div class="card">
+                    <img src="images/trhacky.jpg" class="card-img-top" alt="trhačky">
+                    <div class="card-body">
+                        <h3 class="card-title">Produkt 1</h3>
+                        <p class="card-text">Trhačky X-Grip slúžia pre lepší úchop osi pri silovom tréningu. Pomocou slučky si vytvoríte otvor pre zápästie a druhý koniec s protišmykovou vrstvou pevne omotáte okolo činky. Odľahčíte tak predlaktia pri ťahových cvikoch, ako je napríklad mŕtvy ťah. Trhačky vám tak umožnia pevnejší úchop.</p>
+                        <a class="btn btn-primary">Kúpiť teraz</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Produkt 2 -->
+            <div class="col">
+                <div class="card">
+                    <img src="images/shaker.jpg" class="card-img-top" alt="šejker">
+                    <div class="card-body">
+                        <h3 class="card-title">Šejker čierny Transparent Black 700 ml</h3>
+                        <p class="card-text">Šejker čierny Transparent Black s objemom 700 ml je vyrobený z netoxického plastu. Obsahuje klasický závit a sitko na dokonalé rozmiešavanie vašich obľúbených proteínov, predtréningových stimulantov a kreatínov. Vďaka transparentnému dizajnu môžete jednoducho skontrolovať množstvo nápoja v šejkri.</p>
+                        <a class="btn btn-primary">Kúpiť teraz</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Produkt 3 -->
+            <div class="col">
+                <div class="card">
+                    <img src="images/protein.jpg" class="card-img-top"  alt="protein">
+                    <div class="card-body">
+                        <h3 class="card-title">True Whey - GymBeam proteín</h3>
+                        <p class="card-text">True Whey je srvátkový koncentrát (WPC), ktorý patrí k najobľúbenejším proteínom. Má vysoký obsah bielkovín, ktoré prispievajú k rastu aj udržaniu svalovej hmoty. Okrem toho vyniká výbornou vstrebateľnosťou, ľahkou stráviteľnosťou a prirodzene vysokým obsahom esenciálnych aminokyselín BCAA.</p>
+                        <a class="btn btn-primary">Kúpiť teraz</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 </body>
 </html>
