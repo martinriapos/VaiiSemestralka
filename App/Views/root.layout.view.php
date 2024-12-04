@@ -27,9 +27,11 @@
                 <li class="nav-item">
                     <a href="<?= $link->url("home.index") ?>" class="nav-link active btn btn-primary me-2">Domov</a>
                 </li>
-                <li class="nav-item">
-                    <a href="<?= $link->url("home.registration") ?>" class="nav-link btn btn-primary me-2">Registracia</a>
-                </li>
+                <?php if (!$auth->isLogged()) { ?>
+                    <li class="nav-item">
+                        <a href="<?= $link->url("home.registration") ?>" class="nav-link btn btn-primary me-2">Registracia</a>
+                    </li>
+                <?php } ?>
                 <li class="nav-item">
                     <a href="<?= $link->url("home.contact") ?>" class="nav-link btn btn-primary">Kontakt</a>
                 </li>

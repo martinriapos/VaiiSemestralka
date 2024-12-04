@@ -37,7 +37,11 @@ class HomeController extends AControllerBase
      */
     public function contact(): Response
     {
-        return $this->html();
+        if ($this->app->getAuth()->isLogged()) {
+            return $this->html();
+        } else {
+            return $this->redirect($this->url("auth.login"));
+        }
     }
 
     public function registration(): Response

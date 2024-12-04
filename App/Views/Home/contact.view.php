@@ -1,22 +1,11 @@
 <?php
 
 /** @var Array $data */
-
+/** @var \App\Core\IAuthenticator $auth */
 /** @var \App\Core\LinkGenerator $link */
 ?>
-
-<!DOCTYPE html>
-<html lang="sk">
-<head>
-    <title><?= \App\Config\Configuration::APP_NAME ?></title>
-    <meta charset="UTF-8">
-    <title>E-shop - Posilkaris</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="old/css/style.css">
-</head>
-
 <!-- Úvod stránky -->
+
 <section class="bg-primary text-white text-center py-5">
     <div class="container">
         <h1>Kontaktujte nás.</h1>
