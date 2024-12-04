@@ -34,7 +34,9 @@ class AuthController extends AControllerBase
         if (isset($formData['submit'])) {
             $logged = $this->app->getAuth()->login($formData['login'], $formData['password']);
             if ($logged) {
+                $_SESSION['user'] = $this->app->getAuth()->getLoggedUserId();
                 return $this->redirect($this->url("home.index"));
+
             }
         }
 
@@ -61,10 +63,9 @@ class AuthController extends AControllerBase
         return $this->redirect($this->url("home.index"));
     }
 
-    public function delete()
+    public function delete(): Response
     {
-        $id = (int)$this->request()->getValue('id');
-        $post = Post::getOne($id);
-        $post->delete();
+        $this->app->getAuth()->deleteUser();
+        return $this->redirect($this->url("home.index"));
     }
 }

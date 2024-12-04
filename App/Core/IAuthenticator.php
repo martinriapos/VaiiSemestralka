@@ -48,4 +48,6 @@ interface IAuthenticator
     public function isLogged(): bool;
 
     public function registration(mixed $username, mixed $password, mixed $email);
+
+    public function deleteUser();
 }

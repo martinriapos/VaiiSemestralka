@@ -39,7 +39,7 @@
             <?php if ($auth->isLogged()) { ?>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= $link->url("home.index") ?>">Zmazanie účtu</a>
+                        <a class="nav-link" href="<?= $link->url("auth.delete") ?>">Zmazanie účtu</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= $link->url("auth.logout") ?>">Odhlásenie</a>
