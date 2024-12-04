@@ -3,6 +3,7 @@
 namespace App\Auth;
 
 use App\Core\IAuthenticator;
+use App\Models\User;
 
 /**
  * Class DummyAuthenticator
@@ -86,5 +87,16 @@ class DummyAuthenticator implements IAuthenticator
     public function getLoggedUserId(): mixed
     {
         return $_SESSION['user'];
+    }
+
+    public function registration(mixed $username, mixed $password, mixed $email): void
+    {
+        $user = new User();
+        $user->setUsername($username);
+        $user->setPassword($password);
+        $user->setEmail($email);
+        $user->save();
+        $_SESSION['user'] = $user;
+
     }
 }

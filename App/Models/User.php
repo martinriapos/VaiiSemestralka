@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Models;
+use App\Core\Model;
 class User extends \App\Core\Model
 {
     protected ?int $id = null;
-
-    protected ?string $name;
     protected ?string $username;
     protected ?string $password;
     protected ?string $email;
@@ -23,16 +22,6 @@ class User extends \App\Core\Model
     public function setUsername(?string $username): void
     {
         $this->username = $username;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(?string $name): void
-    {
-        $this->name = $name;
     }
 
     public function getPassword(): ?string

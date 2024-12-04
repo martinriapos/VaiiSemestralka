@@ -51,4 +51,20 @@ class AuthController extends AControllerBase
         $this->app->getAuth()->logout();
         return $this->redirect($this->url('home.index'));
     }
+
+    public function registration(): Response
+    {
+        $formData = $this->app->getRequest()->getPost();
+        if (isset($formData['submit'])) {
+            $this->app->getAuth()->registration($formData['username'], $formData['password'], $formData['email']);
+        }
+        return $this->redirect($this->url("home.index"));
+    }
+
+    public function delete()
+    {
+        $id = (int)$this->request()->getValue('id');
+        $post = Post::getOne($id);
+        $post->delete();
+    }
 }

@@ -1,4 +1,8 @@
+<?php
 
+/** @var \App\Core\LinkGenerator $link */
+
+?>
 
 
 <body>
@@ -16,30 +20,30 @@
         <div class="col">
             <!-- Vrch text uvod -->
             <h2 class="text-center">Registrácia</h2>
-            <form class="custom-registration-form">
+            <form action="<?= $link->url("auth.registration")?>" method="post" class="custom-registration-form">
                 <!-- 1.label/header -->
                 <div class="form-group">
                     <label for="username">Používateľské meno</label>
-                    <input type="text" id="username" class="form-control" required>
+                    <input name="username" type="text" id="username" class="form-control" required>
                 </div>
                 <!-- 2.label/header -->
                 <div class="form-group">
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" class="form-control" required>
+                    <input name="email" type="email" id="email" class="form-control" required>
                 </div>
                 <!-- 3.label/header -->
                 <div class="form-group">
                     <label for="password">Heslo</label>
-                    <input type="password" id="password" class="form-control" required>
+                    <input name="password" type="password" id="password" class="form-control" required>
                 </div>
                 <!-- 4.label/header -->
                 <div class="form-group">
                     <label for="confirm-password">Potvrdiť heslo</label>
-                    <input type="password" id="confirm-password" class="form-control" required>
+                    <input name="confirmPassword" type="password" id="confirm-password" class="form-control" required>
                 </div>
                 <!-- Button na registraciu -->
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary">Zaregistrovať sa</button>
+                    <button name="submit" type="submit" class="btn btn-primary">Zaregistrovať sa</button>
                 </div>
             </form>
         </div>
