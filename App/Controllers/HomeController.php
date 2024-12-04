@@ -48,4 +48,13 @@ class HomeController extends AControllerBase
     {
         return $this->html();
     }
+
+    public function edit(): Response
+    {
+        if ($this->app->getAuth()->isLogged()) {
+            return $this->html();
+        } else {
+            return $this->redirect($this->url("auth.login"));
+        }
+    }
 }

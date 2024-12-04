@@ -50,4 +50,6 @@ interface IAuthenticator
     public function registration(mixed $username, mixed $password, mixed $email);
 
     public function deleteUser();
+
+    public function editUser(mixed $username, mixed $password, mixed $email);
 }

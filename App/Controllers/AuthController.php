@@ -68,4 +68,13 @@ class AuthController extends AControllerBase
         $this->app->getAuth()->deleteUser();
         return $this->redirect($this->url("home.index"));
     }
+
+    public function edit(): Response
+    {
+        $formData = $this->app->getRequest()->getPost();
+        if (isset($formData['submit'])) {
+            $this->app->getAuth()->editUser($formData['username'], $formData['password'], $formData['email']);
+        }
+        return $this->redirect($this->url("home.index"));
+    }
 }

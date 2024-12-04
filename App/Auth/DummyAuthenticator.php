@@ -105,4 +105,13 @@ class DummyAuthenticator implements IAuthenticator
         $this->logout();
         $user->delete();
     }
+
+    public function editUser(mixed $username, mixed $password, mixed $email): void
+    {
+        $user = User::getOne($this->getLoggedUserId());
+        $user->setUsername($username);
+        $user->setPassword($password);
+        $user->setEmail($email);
+        $user->save();
+    }
 }

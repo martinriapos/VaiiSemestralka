@@ -3,6 +3,7 @@
 /** @var string $contentHTML */
 /** @var \App\Core\IAuthenticator $auth */
 /** @var \App\Core\LinkGenerator $link */
+/** @var Array $data */
 ?>
 <!DOCTYPE html>
 <html lang="sk">
@@ -39,7 +40,10 @@
             <?php if ($auth->isLogged()) { ?>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= $link->url("auth.delete") ?>">Zmazanie účtu</a>
+                        <a class="nav-link btn btn-primary" href="<?= $link->url("auth.delete") ?>">Zmazanie účtu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= $link->url("home.edit") ?>">Úprava účtu</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= $link->url("auth.logout") ?>">Odhlásenie</a>
