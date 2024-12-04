@@ -3,10 +3,8 @@
 /** @var string $contentHTML */
 /** @var \App\Core\IAuthenticator $auth */
 /** @var \App\Core\LinkGenerator $link */
-/** @var Array $data */
+
 ?>
-<!DOCTYPE html>
-<html lang="sk">
 <head>
     <title><?= \App\Config\Configuration::APP_NAME ?></title>
     <meta charset="UTF-8">

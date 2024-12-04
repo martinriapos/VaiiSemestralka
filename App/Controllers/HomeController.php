@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Core\AControllerBase;
 use App\Core\Responses\Response;
+use App\Models\User;
 
 /**
  * Class HomeController
@@ -28,6 +29,10 @@ class HomeController extends AControllerBase
      */
     public function index(): Response
     {
+        if ($this->app->getAuth()->isLogged()) {
+            $data = $this->app->getAuth()->getLoggedUserName();
+            return $this->html($data);
+        }
         return $this->html();
     }
 
