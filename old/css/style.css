@@ -15,6 +15,10 @@ body {
     font-weight: bold;
 }
 
+.navbar-text {
+    align-content: center;
+}
+
 .container .btn:hover {
     background-color: black;
 }

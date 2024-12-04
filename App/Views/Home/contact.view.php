@@ -5,23 +5,58 @@
 /** @var \App\Core\LinkGenerator $link */
 ?>
 
-<div class="row">
-    <div class="col">
-        <h3>Fakulta riadenia a informatiky</h3>
-        <strong>Adresa</strong>: Univerzitná 8215/1, 010 26 Žilina<br>
-        <strong>Tel. číslo</strong>: +421/41 513 4121<br>
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <title><?= \App\Config\Configuration::APP_NAME ?></title>
+    <meta charset="UTF-8">
+    <title>E-shop - Posilkaris</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="old/css/style.css">
+</head>
 
-        <strong>GPS</strong>: 49°12'6,4"N 18°45'42,6"E
+<!-- Úvod stránky -->
+<section class="bg-primary text-white text-center py-5">
+    <div class="container">
+        <h1>Kontaktujte nás.</h1>
+        <p class="podnadpis">Ak máte s niečím problém neváhajte nás kontaktovať.</p>
+    </div>
+</section>
+
+<!-- Kontaktovanie pomocou forms -->
+<div class="container justify-content-center align-items-center">
+    <div class="row">
+        <div class="col">
+            <form class="custom-contact-form">
+                <!-- 1.label/header -->
+                <div class="form-group">
+                    <label for="username">Používateľské meno</label>
+                    <input type="text" id="username" class="form-control" required>
+                </div>
+                <!-- 2.label/header -->
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+                <!-- 3.label/header -->
+                <div class="form-group">
+                    <label for="message">Správa:</label>
+                    <textarea id="message" rows="5" required></textarea>
+                </div>
+                <!-- Button na odoslanie -->
+                <button type="submit" class="btn btn-primary">Odoslať</button>
+            </form>
+        </div>
     </div>
 </div>
-<div class="row mt-3">
-    <div class="col">
-        <iframe width="100%" height="300"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=18.747396469116214%2C49.193792384417996%2C18.776578903198246%2C49.210336337994846&amp;layer=mapnik&amp;marker=49.202065053033984%2C18.761987686157227"></iframe>
+
+<!-- Spodok stranky -->
+<footer class="footer">
+    <div class="container text-center">
+        <p class="upper">&copy; 2024 Posilkaris. Všetky práva vyhradené.</p>
+        <p class="lower">
+            Kontakt: <a href="mailto:info@posilkaris.sk">info@posilkaris.sk</a> | Telefón: +421 123 456 789
+        </p>
     </div>
-</div>
-<div class="row mt-3">
-    <div class="col">
-        <a href="<?= $link->url("home.index") ?>">Späť na hlavnú stránku</a>
-    </div>
-</div>
+</footer>
