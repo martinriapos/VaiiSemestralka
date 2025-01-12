@@ -114,4 +114,9 @@ class DummyAuthenticator implements IAuthenticator
         $user->setEmail($email);
         $user->save();
     }
+
+    public function getLoggedEmail(): string
+    {
+        return User::getOne($this->getLoggedUserId())->getEmail();
+    }
 }

@@ -17,16 +17,16 @@
 <div class="container justify-content-center align-items-center">
     <div class="row">
         <div class="col">
-            <form class="custom-contact-form">
+            <form class="custom-contact-form"
                 <!-- 1.label/header -->
                 <div class="form-group">
                     <label for="username">Používateľské meno</label>
-                    <input type="text" id="username" class="form-control" required>
+                    <input type="text" readonly class="form-control-plaintext" id="mail" value=<?= $auth->getLoggedUserName()?>>
                 </div>
                 <!-- 2.label/header -->
                 <div class="form-group">
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" class="form-control" required>
+                    <input type="text" readonly class="form-control-plaintext" id="mail" value=<?= $auth->getLoggedEmail()?>>
                 </div>
                 <!-- 3.label/header -->
                 <div class="form-group">

@@ -28,6 +28,7 @@ interface IAuthenticator
      * @return string
      */
     public function getLoggedUserName(): string;
+    public function getLoggedEmail(): string;
 
     /**
      * Return id of a logged user
