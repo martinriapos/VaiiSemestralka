@@ -10,9 +10,6 @@
         <h1>Vitajte v našom E-shope Posilkaris.</h1>
         <p class="podnadpis">Najlepšie produkty ktoré nájdete pre cvičenie a stravu.</p>
     </div>
-    <ul class="navbar-nav ms-auto">
-        <li class="navbar-text" style="font-size: 40px">Prihlasený použivateľ: <?= $data?></li>
-    </ul>
 </section>
 
 <!-- Odporúčané produkty -->
@@ -96,6 +93,3 @@
         </p>
     </div>
 </footer>
-
-</body>
-</html>

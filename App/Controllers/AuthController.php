@@ -60,7 +60,7 @@ class AuthController extends AControllerBase
         if (isset($formData['submit'])) {
             $this->app->getAuth()->registration($formData['username'], $formData['password'], $formData['email']);
         }
-        return $this->redirect($this->url("home.index"));
+        return $this->redirect($this->url("auth.login"));
     }
 
     public function delete(): Response

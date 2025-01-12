@@ -118,3 +118,16 @@ section.bg-primary h1 {
 .lower {
     margin-bottom: 0;
 }
+
+.container-fluid {
+    position: relative;
+    .nadpis {
+        text-decoration: none;
+        color: black;
+        position: absolute;
+        margin: 0;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+}

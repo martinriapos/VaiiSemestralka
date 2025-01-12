@@ -4,7 +4,6 @@
 
 ?>
 
-
 <body>
 <!-- Úvod stránky -->
 <section class="bg-primary text-white text-center py-5">
@@ -58,6 +57,4 @@
         </p>
     </div>
 </footer>
-
 </body>
-</html>
