@@ -5,6 +5,8 @@
 /** @var \App\Core\LinkGenerator $link */
 
 ?>
+<!DOCTYPE html>
+<html lang="sk"></html>
 <head>
     <title><?= \App\Config\Configuration::APP_NAME ?></title>
     <meta charset="UTF-8">
@@ -18,6 +20,9 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href="<?= $link->url("home.index") ?>">E-shop</a>
+        <?php if ($auth->isLogged()) { ?>
+            <a class="nadpis" style="font-size: 20px">Prihlasený použivateľ: <?= $auth->getLoggedUserName()?></a>
+        <?php } ?>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
