@@ -12,7 +12,7 @@
                     <div class="text-center text-danger mb-3">
                         <?= @$data['message'] ?>
                     </div>
-                    <form class="form-signin" method="post" action="<?= $link->url("auth.addproduct") ?>">
+                    <form class="form-signin" method="post" action="<?= $link->url("admin.addproduct") ?>">
                         <div class="form-label-group mb-3">
                             <input name="productname" type="text" id="productname" class="form-control" placeholder="Product name" required autofocus>
                         </div>

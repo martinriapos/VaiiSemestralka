@@ -49,7 +49,7 @@
             <?php if ($auth->isLogged()) { ?>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link btn btn-primary me-2" href="<?= $link->url("auth.delete") ?>">Zmazanie účtu</a>
+                        <a class="nav-link btn btn-primary me-2" href="<?= $link->url("home.delete") ?>">Zmazanie účtu</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= $link->url("home.edit") ?>">Úprava účtu</a>

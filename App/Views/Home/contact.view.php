@@ -15,7 +15,7 @@
 <div class="container justify-content-center align-items-center">
     <div class="row">
         <div class="col">
-            <form class="custom-contact-form"
+            <form class="custom-contact-form">
                 <div class="form-group">
                     <label for="username">Používateľské meno</label>
                     <input type="text" class="form-control" id="mail" required value=<?= isset($_SESSION['username']) ? $_SESSION['username'] : ""?>>

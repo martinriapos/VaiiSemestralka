@@ -102,6 +102,7 @@ class DummyAuthenticator implements IAuthenticator
         $user->setPassword($password);
         $user->setEmail($email);
         $user->setActive(1);
+        $user->setRole("user");
         $user->save();
     }
 

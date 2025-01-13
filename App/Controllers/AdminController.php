@@ -7,30 +7,47 @@ use App\Core\Responses\Response;
 use App\Models\Products;
 use App\Models\User;
 
-/**
- * Class HomeController
- * Example class of a controller
- * @package App\Controllers
- */
 class AdminController extends AControllerBase
 {
-    /**
-     * Authorize controller actions
-     * @param $action
-     * @return bool
-     */
-    public function authorize($action)
-    {
-        return $this->app->getAuth()->isLogged();
-    }
-
-    /**
-     * Example of an action (authorization needed)
-     * @return \App\Core\Responses\Response|\App\Core\Responses\ViewResponse
-     */
     public function index(): Response
     {
         return $this->html();
+    }
+
+    public function edit(): Response
+    {
+        if ($_GET['is'] == "u") {
+            $id = $_GET['id'];
+            return $this->html(User::getOne($id));
+        } else {
+            $id = $_GET['id'];
+            return $this->html(Products::getOne($id));
+        }
+    }
+
+    public function addproduct(): Response
+    {
+        $formData = $this->app->getRequest()->getPost();
+        if (isset($formData['submit'])) {
+            $this->app->getAuth()->addproducts($formData['productname'], $formData['name'], $formData['price'], $formData['stock'], $formData['text']);
+        }
+        return $this->redirect($this->url("home.index"));
+    }
+
+    public function editadmin(): Response
+    {
+        $formData = $this->app->getRequest()->getPost();
+
+        if ($_GET['is'] == "u") {
+            if (isset($formData['submit'])) {
+                $this->app->getAuth()->AdminEditUser($_GET['id'], $formData['username'], $formData['role'], $formData['email']);
+            }
+        } else {
+            if (isset($formData['submit'])) {
+                $this->app->getAuth()->AdminEditProduct($_GET['id'], $formData['productname'], $formData['name'], $formData['price'], $formData['stock'], $formData['text']);
+            }
+        }
+        return $this->redirect($this->url("home.index"));
     }
 
     public function editusers(): Response
@@ -44,19 +61,15 @@ class AdminController extends AControllerBase
         $data = Products::getAll();
         return $this->html($data);
     }
-    public function edit(): Response
-    {
-        if ($_GET['is'] == "u") {
-            $id = $_GET['id'];
-            return $this->html(User::getOne($id));
-        } else {
-            $id = $_GET['id'];
-            return $this->html(Products::getOne($id));
-        }
-    }
 
     public function addproducts(): Response
     {
         return $this->html();
+    }
+
+    public function deleteproduct(): Response
+    {
+        $this->app->getAuth()->deleteProduct($_GET['id']);
+        return $this->redirect($this->url("home.index"));
     }
 }

@@ -25,7 +25,7 @@
                 <td><?= $product->getStock()?></td>
                 <td><?= $product->getText()?></td>
                 <td><a href="<?= $link->url("admin.edit", ["id" => $product->getId(), "is" => "p"]) ?>" class="nav-link active btn btn-secondary">Upraviť</a></td>
-                <td><a href="<?= $link->url("auth.deleteproduct", ["id" => $product->getId(), "is" => "p"]) ?>" class="nav-link active btn btn-secondary">Vymazať</a></td>
+                <td><a href="<?= $link->url("admin.deleteproduct", ["id" => $product->getId(), "is" => "p"]) ?>" class="nav-link active btn btn-secondary">Vymazať</a></td>
             </tr>
         <?php endforeach; ?>
         </tbody>

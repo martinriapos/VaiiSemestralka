@@ -8,7 +8,7 @@
         <div class="col">
             <?php if($data instanceof \App\Models\User){ ?>
             <h2 class="text-center">Uprava profilu použivateľov</h2>
-            <form action="<?= $link->url("auth.editadmin", ["id" => $data->getId(), "is" => "u"])?>" method="post" class="custom-edituser-form">
+            <form action="<?= $link->url("admin.editadmin", ["id" => $data->getId(), "is" => "u"])?>" method="post" class="custom-edituser-form">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input name="username" type="text" id="username" class="form-control" required value=<?= $data->getUsername() ?>>
@@ -27,7 +27,7 @@
             </form>
             <?php } elseif ($data instanceof \App\Models\Products) { ?>
                 <h2 class="text-center">Uprava produktov</h2>
-                <form action="<?= $link->url("auth.editadmin", ["id" => $data->getId(), "is" => "p"])?>" method="post" class="custom-edituser-form">
+                <form action="<?= $link->url("admin.editadmin", ["id" => $data->getId(), "is" => "p"])?>" method="post" class="custom-edituser-form">
                     <div class="form-group">
                         <label for="productname">Productname</label>
                         <input name="productname" type="text" id="productname" class="form-control" required value=<?= $data->getProductname() ?>>
