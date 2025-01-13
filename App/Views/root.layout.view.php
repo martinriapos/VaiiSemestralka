@@ -21,7 +21,7 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="<?= $link->url("home.index") ?>">E-shop</a>
         <?php if ($auth->isLogged()) { ?>
-            <a class="nadpis" style="font-size: 20px">Prihlasený použivateľ: <?= $auth->getLoggedUserName()?></a>
+            <a class="nadpis" style="font-size: 15px">Prihlasený použivateľ: <?= $_SESSION['username']?></a>
         <?php } ?>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -37,13 +37,13 @@
                     </li>
                 <?php } ?>
                 <li class="nav-item">
-                    <a href="<?= $link->url("home.contact") ?>" class="nav-link btn btn-primary">Kontakt</a>
+                    <a href="<?= $link->url("home.contact") ?>" class="nav-link btn btn-primary me-2">Kontakt</a>
                 </li>
             </ul>
             <?php if ($auth->isLogged()) { ?>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link btn btn-primary" href="<?= $link->url("auth.delete") ?>">Zmazanie účtu</a>
+                        <a class="nav-link btn btn-primary me-2" href="<?= $link->url("auth.delete") ?>">Zmazanie účtu</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= $link->url("home.edit") ?>">Úprava účtu</a>

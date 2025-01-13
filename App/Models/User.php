@@ -8,6 +8,7 @@ class User extends \App\Core\Model
     protected ?string $username;
     protected ?string $password;
     protected ?string $email;
+    protected ?int $active;
 
     public function getId(): ?int
     {
@@ -43,4 +44,15 @@ class User extends \App\Core\Model
     {
         $this->email = $email;
     }
+
+    public function getActive(): ?int
+    {
+        return $this->active;
+    }
+
+    public function setActive(?int $active): void
+    {
+        $this->active = $active;
+    }
+
 }

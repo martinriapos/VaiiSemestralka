@@ -21,12 +21,12 @@
                 <!-- 1.label/header -->
                 <div class="form-group">
                     <label for="username">Používateľské meno</label>
-                    <input type="text" readonly class="form-control-plaintext" id="mail" value=<?= $auth->getLoggedUserName()?>>
+                    <input type="text" readonly class="form-control-plaintext" id="mail" value=<?= isset($_SESSION['username']) ? $_SESSION['username'] : ""?>>
                 </div>
                 <!-- 2.label/header -->
                 <div class="form-group">
                     <label for="email">E-mail</label>
-                    <input type="text" readonly class="form-control-plaintext" id="mail" value=<?= $auth->getLoggedEmail()?>>
+                    <input type="text" readonly class="form-control-plaintext" id="mail" value=<?= isset($_SESSION['email']) ? $_SESSION['email'] : ""?>>
                 </div>
                 <!-- 3.label/header -->
                 <div class="form-group">

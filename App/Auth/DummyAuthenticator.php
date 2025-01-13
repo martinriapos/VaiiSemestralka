@@ -33,7 +33,9 @@ class DummyAuthenticator implements IAuthenticator
         $users = User::getAll();
         foreach ($users as $user) {
             if ( $user->getUsername() == $login && $user->getPassword() == $password ) {
-                $_SESSION['user'] = $user->getId();
+                $_SESSION['userid'] = $user->getId();
+                $_SESSION['username'] = $user->getUsername();
+                $_SESSION['email'] = $user->getEmail();
                 return true;
             }
         }
@@ -45,8 +47,10 @@ class DummyAuthenticator implements IAuthenticator
      */
     public function logout(): void
     {
-        if (isset($_SESSION["user"])) {
-            unset($_SESSION["user"]);
+        if (isset($_SESSION['userid'])) {
+            unset($_SESSION['userid']);
+            unset($_SESSION['email']);
+            unset($_SESSION['username']);
             session_destroy();
         }
     }
@@ -76,7 +80,7 @@ class DummyAuthenticator implements IAuthenticator
      */
     public function isLogged(): bool
     {
-        return isset($_SESSION['user']) && $_SESSION['user'] != null;
+        return isset($_SESSION['userid']) && $_SESSION['userid'] != null;
     }
 
     /**
@@ -85,7 +89,7 @@ class DummyAuthenticator implements IAuthenticator
      */
     public function getLoggedUserId(): mixed
     {
-        return $_SESSION['user'];
+        return $_SESSION['userid'];
     }
 
     public function registration(mixed $username, mixed $password, mixed $email): void
@@ -95,8 +99,6 @@ class DummyAuthenticator implements IAuthenticator
         $user->setPassword($password);
         $user->setEmail($email);
         $user->save();
-        $_SESSION['user'] = $user;
-
     }
 
     public function deleteUser(): void
@@ -108,15 +110,13 @@ class DummyAuthenticator implements IAuthenticator
 
     public function editUser(mixed $username, mixed $password, mixed $email): void
     {
-        $user = User::getOne($this->getLoggedUserId());
+        $user = User::getOne($_SESSION['userid']);
+        if ($user == null) {
+            return;
+        }
         $user->setUsername($username);
         $user->setPassword($password);
         $user->setEmail($email);
         $user->save();
-    }
-
-    public function getLoggedEmail(): string
-    {
-        return User::getOne($this->getLoggedUserId())->getEmail();
     }
 }

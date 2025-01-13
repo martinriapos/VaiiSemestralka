@@ -18,12 +18,12 @@
         <h2 class="text-center">Odporúčané produkty</h2>
         <div class="row">
             <!-- Produkt 1 -->
-            <div class="col">
+            <div class="col-md-4">
                 <div class="card">
                     <img src="old/images/trhacky.jpg" class="card-img-top" alt="trhačky">
                     <div class="card-body">
                         <h3 class="card-title">Trhačky</h3>
-                        <p class="card-text">Trhačky X-Grip slúžia pre lepší úchop osi pri silovom tréningu. Pomocou slučky si vytvoríte otvor pre zápästie a druhý koniec s protišmykovou vrstvou pevne omotáte okolo činky. Odľahčíte tak predlaktia pri ťahových cvikoch, ako je napríklad mŕtvy ťah. Trhačky vám tak umožnia pevnejší úchop.</p>
+                        <p class="card-text"></p>
                         <p class="price">5,59$</p>
                         <a class="btn btn-primary">Kúpiť teraz</a>
                     </div>
@@ -35,7 +35,7 @@
                     <img src="old/images/shaker.jpg" class="card-img-top" alt="šejker">
                     <div class="card-body">
                         <h3 class="card-title">Šejker čierny Transparent Black 700 ml</h3>
-                        <p class="card-text">Šejker čierny Transparent Black s objemom 700 ml je vyrobený z netoxického plastu. Obsahuje klasický závit a sitko na dokonalé rozmiešavanie vašich obľúbených proteínov, predtréningových stimulantov a kreatínov. Vďaka transparentnému dizajnu môžete jednoducho skontrolovať množstvo nápoja v šejkri.</p>
+                        <p class="card-text"></p>
                         <p class="price">7,49$</p>
                         <a class="btn btn-primary">Kúpiť teraz</a>
                     </div>
@@ -47,7 +47,7 @@
                     <img src="old/images/protein.jpg" class="card-img-top"  alt="protein">
                     <div class="card-body">
                         <h3 class="card-title">True Whey - GymBeam proteín</h3>
-                        <p class="card-text">True Whey je srvátkový koncentrát (WPC), ktorý patrí k najobľúbenejším proteínom. Má vysoký obsah bielkovín, ktoré prispievajú k rastu aj udržaniu svalovej hmoty. Okrem toho vyniká výbornou vstrebateľnosťou, ľahkou stráviteľnosťou a prirodzene vysokým obsahom esenciálnych aminokyselín BCAA.</p>
+                        <p class="card-text"></p>
                         <p class="price">16,95$</p>
                         <a class="btn btn-primary">Kúpiť teraz</a>
                     </div>
