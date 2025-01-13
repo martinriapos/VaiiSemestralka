@@ -32,10 +32,11 @@ class DummyAuthenticator implements IAuthenticator
     {
         $users = User::getAll();
         foreach ($users as $user) {
-            if ( $user->getUsername() == $login && $user->getPassword() == $password ) {
+            if ( $user->getUsername() == $login && $user->getPassword() == $password && $user->getActive() == 1) {
                 $_SESSION['userid'] = $user->getId();
                 $_SESSION['username'] = $user->getUsername();
                 $_SESSION['email'] = $user->getEmail();
+                $_SESSION['role'] = $user->getRole();
                 return true;
             }
         }
@@ -51,6 +52,7 @@ class DummyAuthenticator implements IAuthenticator
             unset($_SESSION['userid']);
             unset($_SESSION['email']);
             unset($_SESSION['username']);
+            unset($_SESSION['role']);
             session_destroy();
         }
     }
@@ -105,19 +107,25 @@ class DummyAuthenticator implements IAuthenticator
     public function deleteUser(): void
     {
         $user = User::getOne($this->getLoggedUserId());
-        $this->logout();
         $user->setActive(0);
+        $user->save();
+        $this->logout();
+
     }
 
     public function editUser(mixed $username, mixed $password, mixed $email): void
     {
         $user = User::getOne($_SESSION['userid']);
-        if ($user == null) {
-            return;
+        if ($user->getActive() == 1) {
+            $user->setUsername($username);
+            $user->setPassword($password);
+            $user->setEmail($email);
+            $user->save();
         }
-        $user->setUsername($username);
-        $user->setPassword($password);
-        $user->setEmail($email);
-        $user->save();
+    }
+
+    public function isAdmin(): bool
+    {
+        return isset($_SESSION['role']) && $_SESSION['role'] != 'user';
     }
 }

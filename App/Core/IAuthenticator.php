@@ -46,6 +46,7 @@ interface IAuthenticator
      * @return bool
      */
     public function isLogged(): bool;
+    public function isAdmin(): bool;
 
     public function registration(mixed $username, mixed $password, mixed $email);
 

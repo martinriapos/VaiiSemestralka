@@ -109,7 +109,9 @@ section.bg-primary h1 {
 .footer {
     background-color: black;
     color: white;
-    margin-bottom: 0;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
 }
 .upper {
     margin-top: 0;
@@ -140,4 +142,11 @@ section.bg-primary h1 {
     }
 }
 
+#adminNav {
+    width: 50%;
+    margin: auto;
+}
 
+#adminLink {
+    margin: 2px;
+}

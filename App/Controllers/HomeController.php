@@ -30,11 +30,9 @@ class HomeController extends AControllerBase
      */
     public function index(): Response
     {
-        if ($this->app->getAuth()->isLogged()) {
-            $data = Products::getAll();
-            return $this->html($data);
-        }
-        return $this->html();
+
+        $data = Products::getAll();
+        return $this->html($data);
     }
 
     /**
@@ -43,11 +41,7 @@ class HomeController extends AControllerBase
      */
     public function contact(): Response
     {
-        if ($this->app->getAuth()->isLogged()) {
-            return $this->html();
-        } else {
-            return $this->redirect($this->url("auth.login"));
-        }
+        return $this->html();
     }
 
     public function registration(): Response

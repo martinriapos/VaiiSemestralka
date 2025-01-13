@@ -21,7 +21,7 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="<?= $link->url("home.index") ?>">E-shop</a>
         <?php if ($auth->isLogged()) { ?>
-            <a class="nadpis" style="font-size: 15px">Prihlasený použivateľ: <?= $_SESSION['username']?></a>
+            <a class="nadpis" style="font-size: 15px">Prihlasený použivateľ: <strong><?= $_SESSION['username']?></strong></a>
         <?php } ?>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -36,9 +36,15 @@
                         <a href="<?= $link->url("home.registration") ?>" class="nav-link btn btn-primary me-2">Registracia</a>
                     </li>
                 <?php } ?>
-                <li class="nav-item">
-                    <a href="<?= $link->url("home.contact") ?>" class="nav-link btn btn-primary me-2">Kontakt</a>
-                </li>
+                <?php if (!$auth->isAdmin()) { ?>
+                    <li class="nav-item">
+                        <a href="<?= $link->url("home.contact") ?>" class="nav-link btn btn-primary me-2">Kontakt</a>
+                    </li>
+                <?php } else { ?>
+                    <li class="nav-item">
+                        <a href="<?= $link->url("admin.index") ?>" class="nav-link btn btn-primary me-2">Admin panel</a>
+                    </li>
+                <?php } ?>
             </ul>
             <?php if ($auth->isLogged()) { ?>
                 <ul class="navbar-nav ms-auto">
@@ -67,5 +73,14 @@
         <?= $contentHTML ?>
     </div>
 </div>
+<!-- Spodok stranky -->
+<footer class="footer">
+    <div class="container text-center">
+        <p class="upper">&copy; 2024 Posilkaris. Všetky práva vyhradené.</p>
+        <p class="lower">
+            Kontakt: <a href="mailto:info@posilkaris.sk">info@posilkarisfirma.sk</a> | Telefón: +421 123 456 789
+        </p>
+    </div>
+</footer>
 </body>
 </html>

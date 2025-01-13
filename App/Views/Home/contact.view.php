@@ -21,12 +21,12 @@
                 <!-- 1.label/header -->
                 <div class="form-group">
                     <label for="username">Používateľské meno</label>
-                    <input type="text" readonly class="form-control-plaintext" id="mail" value=<?= isset($_SESSION['username']) ? $_SESSION['username'] : ""?>>
+                    <input type="text" class="form-control" id="mail" required value=<?= isset($_SESSION['username']) ? $_SESSION['username'] : ""?>>
                 </div>
                 <!-- 2.label/header -->
                 <div class="form-group">
                     <label for="email">E-mail</label>
-                    <input type="text" readonly class="form-control-plaintext" id="mail" value=<?= isset($_SESSION['email']) ? $_SESSION['email'] : ""?>>
+                    <input type="text" class="form-control" id="mail" required value=<?= isset($_SESSION['email']) ? $_SESSION['email'] : ""?>>
                 </div>
                 <!-- 3.label/header -->
                 <div class="form-group">
@@ -39,13 +39,3 @@
         </div>
     </div>
 </div>
-
-<!-- Spodok stranky -->
-<footer class="footer">
-    <div class="container text-center">
-        <p class="upper">&copy; 2024 Posilkaris. Všetky práva vyhradené.</p>
-        <p class="lower">
-            Kontakt: <a href="mailto:info@posilkaris.sk">info@posilkaris.sk</a> | Telefón: +421 123 456 789
-        </p>
-    </div>
-</footer>

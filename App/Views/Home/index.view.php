@@ -82,14 +82,3 @@
         </tbody>
     </table>
 </div>
-
-
-<!-- Spodok stranky -->
-<footer class="footer">
-    <div class="container text-center">
-        <p class="upper">&copy; 2024 Posilkaris. Všetky práva vyhradené.</p>
-        <p class="lower">
-            Kontakt: <a href="mailto:info@posilkaris.sk">info@posilkaris.sk</a> | Telefón: +421 123 456 789
-        </p>
-    </div>
-</footer>
