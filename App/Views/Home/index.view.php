@@ -18,13 +18,13 @@
         <h2 class="text-center">Odporúčané produkty</h2>
         <div class="row">
             <!-- Produkt 1 -->
-            <div class="col-md-4">
+            <div class="col">
                 <div class="card">
-                    <img src="old/images/trhacky.jpg" class="card-img-top" alt="trhačky">
+                    <img src="old/images/shaker.jpg" class="card-img-top" alt="šejker">
                     <div class="card-body">
-                        <h3 class="card-title">Trhačky</h3>
-                        <p class="card-text"></p>
-                        <p class="price">5,59$</p>
+                        <h3 class="card-title"><?=$data[0]->getName()?></h3>
+                        <p class="card-text"><?=$data[0]->getText()?></p>
+                        <p class="price"><?=$data[0]->getPrice()?></p>
                         <a class="btn btn-primary">Kúpiť teraz</a>
                     </div>
                 </div>
@@ -32,23 +32,23 @@
             <!-- Produkt 2 -->
             <div class="col">
                 <div class="card">
-                    <img src="old/images/shaker.jpg" class="card-img-top" alt="šejker">
+                    <img src="old/images/protein.jpg" class="card-img-top"  alt="protein">
                     <div class="card-body">
-                        <h3 class="card-title">Šejker čierny Transparent Black 700 ml</h3>
-                        <p class="card-text"></p>
-                        <p class="price">7,49$</p>
+                        <h3 class="card-title"><?=$data[1]->getName()?></h3>
+                        <p class="card-text"><?=$data[1]->getText()?></p>
+                        <p class="price"><?=$data[1]->getPrice()?></p>
                         <a class="btn btn-primary">Kúpiť teraz</a>
                     </div>
                 </div>
             </div>
             <!-- Produkt 3 -->
-            <div class="col">
+            <div class="col-md-4">
                 <div class="card">
-                    <img src="old/images/protein.jpg" class="card-img-top"  alt="protein">
+                    <img src="old/images/trhacky.jpg" class="card-img-top" alt="trhačky">
                     <div class="card-body">
-                        <h3 class="card-title">True Whey - GymBeam proteín</h3>
-                        <p class="card-text"></p>
-                        <p class="price">16,95$</p>
+                        <h3 class="card-title"><?=$data[2]->getName()?></h3>
+                        <p class="card-text"><?=$data[2]->getText()?></p>
+                        <p class="price"><?=$data[2]->getPrice()?></p>
                         <a class="btn btn-primary">Kúpiť teraz</a>
                     </div>
                 </div>
