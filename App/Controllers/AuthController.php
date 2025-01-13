@@ -77,4 +77,13 @@ class AuthController extends AControllerBase
         }
         return $this->redirect($this->url("home.index"));
     }
+
+    public function editadmin(): Response
+    {
+        $formData = $this->app->getRequest()->getPost();
+        if (isset($formData['submit'])) {
+            $this->app->getAuth()->AdminEditUser($_GET['id'] ,$formData['username'], $formData['role'], $formData['email']);
+        }
+        return $this->redirect($this->url("home.index"));
+    }
 }

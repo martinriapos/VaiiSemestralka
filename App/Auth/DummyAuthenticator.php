@@ -124,6 +124,17 @@ class DummyAuthenticator implements IAuthenticator
         }
     }
 
+    public function adminEditUser(mixed $userid, mixed $username, mixed $role, mixed $email): void
+    {
+        $user = User::getOne($userid);
+        if ($user->getActive() == 1) {
+            $user->setUsername($username);
+            $user->setRole($role);
+            $user->setEmail($email);
+            $user->save();
+        }
+    }
+
     public function isAdmin(): bool
     {
         return isset($_SESSION['role']) && $_SESSION['role'] != 'user';

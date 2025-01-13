@@ -53,4 +53,5 @@ interface IAuthenticator
     public function deleteUser();
 
     public function editUser(mixed $username, mixed $password, mixed $email);
+    public function AdminEditUser(mixed $userid, mixed $username, mixed $role, mixed $email);
 }

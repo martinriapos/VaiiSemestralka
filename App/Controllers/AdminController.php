@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Core\AControllerBase;
 use App\Core\Responses\Response;
+use App\Models\User;
 
 /**
  * Class HomeController
@@ -29,5 +30,16 @@ class AdminController extends AControllerBase
     public function index(): Response
     {
         return $this->html();
+    }
+
+    public function editusers(): Response
+    {
+        $data = User::getAll();
+        return $this->html($data);
+    }
+    public function edit(): Response
+    {
+        $id = $_GET['id'];
+        return $this->html(User::getOne($id));
     }
 }
