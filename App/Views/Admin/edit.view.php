@@ -7,31 +7,25 @@
     <div class="row">
         <div class="col">
             <?php if($data instanceof \App\Models\User){ ?>
-            <!-- Vrch text uvod -->
             <h2 class="text-center">Uprava profilu použivateľov</h2>
             <form action="<?= $link->url("auth.editadmin", ["id" => $data->getId(), "is" => "u"])?>" method="post" class="custom-edituser-form">
-                <!-- 1.label/header -->
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input name="username" type="text" id="username" class="form-control" required value=<?= $data->getUsername() ?>>
                 </div>
-                <!-- 2.label/header -->
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input name="email" type="email" id="email" class="form-control" required value=<?= $data->getEmail() ?>>
                 </div>
-                <!-- 3.label/header -->
                 <div class="form-group">
                     <label for="role">Role</label>
                     <input name="role" type="text" id="role" class="form-control" required value=<?= $data->getRole() ?>>
                 </div>
-                <!-- Button na registraciu -->
                 <div class="d-flex justify-content-center">
                     <button name="submit" type="submit" class="btn btn-primary">Upraviť profil</button>
                 </div>
             </form>
             <?php } elseif ($data instanceof \App\Models\Products) { ?>
-                <!-- Vrch text uvod -->
                 <h2 class="text-center">Uprava produktov</h2>
                 <form action="<?= $link->url("auth.editadmin", ["id" => $data->getId(), "is" => "p"])?>" method="post" class="custom-edituser-form">
                     <div class="form-group">

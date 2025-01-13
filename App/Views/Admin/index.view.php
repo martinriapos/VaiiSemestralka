@@ -11,7 +11,7 @@
                 <h1 style="text-align: center">Vitaj, <strong><?= $auth->getLoggedUserName() ?></strong>!</h1><br><br>
                 <ul class="navbar-nav" id="adminNav">
                     <a id="adminLink" href="<?= $link->url("admin.editusers") ?>" class="nav-link btn btn-secondary">Úprava uživateľov</a>
-                    <a id="adminLink" href="<?= $link->url("admin.editusers") ?>" class="nav-link btn btn-secondary">Pridanie produktov</a>
+                    <a id="adminLink" href="<?= $link->url("admin.addproducts") ?>" class="nav-link btn btn-secondary">Pridanie produktov</a>
                     <a id="adminLink" href="<?= $link->url("admin.editproducts") ?>" class="nav-link btn btn-secondary">Úprava Produktov</a>
                     <a id="adminLink" href="<?= $link->url("home.contact") ?>" class="nav-link btn btn-secondary">Kontakt</a>
                 </ul>

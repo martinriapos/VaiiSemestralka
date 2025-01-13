@@ -69,6 +69,13 @@ class AuthController extends AControllerBase
         return $this->redirect($this->url("home.index"));
     }
 
+    public function deleteproduct(): Response
+    {
+
+        $this->app->getAuth()->deleteProduct($_GET['id']);
+        return $this->redirect($this->url("home.index"));
+    }
+
     public function edit(): Response
     {
         $formData = $this->app->getRequest()->getPost();
@@ -90,6 +97,15 @@ class AuthController extends AControllerBase
             if (isset($formData['submit'])) {
                 $this->app->getAuth()->AdminEditProduct($_GET['id'] ,$formData['productname'], $formData['name'], $formData['price'], $formData['stock'], $formData['text']);
             }
+        }
+        return $this->redirect($this->url("home.index"));
+    }
+
+    public function addproduct(): Response
+    {
+        $formData = $this->app->getRequest()->getPost();
+        if (isset($formData['submit'])) {
+            $this->app->getAuth()->addproducts($formData['productname'], $formData['name'], $formData['price'], $formData['stock'], $formData['text']);
         }
         return $this->redirect($this->url("home.index"));
     }

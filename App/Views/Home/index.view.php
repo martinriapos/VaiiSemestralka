@@ -4,7 +4,6 @@
 
 ?>
 
-<!-- Úvod stránky -->
 <section class="bg-primary  text-white text-center py-5">
     <div class="container">
         <h1>Vitajte v našom E-shope Posilkaris.</h1>
@@ -12,7 +11,6 @@
     </div>
 </section>
 
-<!-- Odporúčané produkty -->
 <section id="produkty" class="py-5">
     <div class="container">
         <h2 class="text-center">Odporúčané produkty</h2>

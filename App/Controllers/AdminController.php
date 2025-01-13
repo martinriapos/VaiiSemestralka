@@ -54,4 +54,9 @@ class AdminController extends AControllerBase
             return $this->html(Products::getOne($id));
         }
     }
+
+    public function addproducts(): Response
+    {
+        return $this->html();
+    }
 }

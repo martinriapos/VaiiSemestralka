@@ -13,6 +13,7 @@
             <th scope="col">Stock</th>
             <th scope="col">Text</th>
             <th scope="col">Uprava</th>
+            <th scope="col">Zmazanie</th>
         </tr>
         </thead>
         <tbody>
@@ -24,6 +25,7 @@
                 <td><?= $product->getStock()?></td>
                 <td><?= $product->getText()?></td>
                 <td><a href="<?= $link->url("admin.edit", ["id" => $product->getId(), "is" => "p"]) ?>" class="nav-link active btn btn-secondary">Upraviť</a></td>
+                <td><a href="<?= $link->url("auth.deleteproduct", ["id" => $product->getId(), "is" => "p"]) ?>" class="nav-link active btn btn-secondary">Vymazať</a></td>
             </tr>
         <?php endforeach; ?>
         </tbody>

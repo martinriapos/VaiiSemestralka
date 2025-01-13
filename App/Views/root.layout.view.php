@@ -73,7 +73,6 @@
         <?= $contentHTML ?>
     </div>
 </div>
-<!-- Spodok stranky -->
 <footer class="footer">
     <div class="container text-center">
         <p class="upper">&copy; 2024 Posilkaris. Všetky práva vyhradené.</p>

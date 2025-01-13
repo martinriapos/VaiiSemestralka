@@ -114,6 +114,12 @@ class DummyAuthenticator implements IAuthenticator
 
     }
 
+    public function deleteProduct(mixed $id)
+    {
+        $product = Products::getOne($id);
+        $product->delete();
+    }
+
     public function editUser(mixed $username, mixed $password, mixed $email): void
     {
         $user = User::getOne($_SESSION['userid']);
@@ -146,6 +152,18 @@ class DummyAuthenticator implements IAuthenticator
         $product = Products::getOne($id);
         $product->setProductname($productname);
         $product->setPrice($name);
+        $product->setPrice($price);
+        $product->setStock($stock);
+        $product->setText($text);
+        $product->save();
+    }
+
+    public function addproducts(mixed $productname, mixed $name, mixed $price, mixed $stock, mixed $text)
+    {
+
+        $product = new Products();
+        $product->setProductname($productname);
+        $product->setName($name);
         $product->setPrice($price);
         $product->setStock($stock);
         $product->setText($text);
