@@ -81,8 +81,15 @@ class AuthController extends AControllerBase
     public function editadmin(): Response
     {
         $formData = $this->app->getRequest()->getPost();
-        if (isset($formData['submit'])) {
-            $this->app->getAuth()->AdminEditUser($_GET['id'] ,$formData['username'], $formData['role'], $formData['email']);
+
+        if ($_GET['is'] == "u") {
+            if (isset($formData['submit'])) {
+                $this->app->getAuth()->AdminEditUser($_GET['id'] ,$formData['username'], $formData['role'], $formData['email']);
+            }
+        } else {
+            if (isset($formData['submit'])) {
+                $this->app->getAuth()->AdminEditProduct($_GET['id'] ,$formData['productname'], $formData['name'], $formData['price'], $formData['stock'], $formData['text']);
+            }
         }
         return $this->redirect($this->url("home.index"));
     }

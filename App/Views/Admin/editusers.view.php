@@ -21,7 +21,7 @@
                 <td><?= $user->getEmail()?></td>
                 <td><?= $user->getRole()?></td>
                 <td><?= $user->getActive()?></td>
-                <td><a href="<?= $link->url("admin.edit", ["id" => $user->getId()]) ?>" class="nav-link active btn btn-secondary">Upraviť</a></td>
+                <td><a href="<?= $link->url("admin.edit", ["id" => $user->getId(), "is" => "u"]) ?>" class="nav-link active btn btn-secondary">Upraviť</a></td>
             </tr>
         <?php endforeach; ?>
         </tbody>

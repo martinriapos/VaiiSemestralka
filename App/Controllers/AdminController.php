@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Core\AControllerBase;
 use App\Core\Responses\Response;
+use App\Models\Products;
 use App\Models\User;
 
 /**
@@ -37,9 +38,20 @@ class AdminController extends AControllerBase
         $data = User::getAll();
         return $this->html($data);
     }
+
+    public function editproducts(): Response
+    {
+        $data = Products::getAll();
+        return $this->html($data);
+    }
     public function edit(): Response
     {
-        $id = $_GET['id'];
-        return $this->html(User::getOne($id));
+        if ($_GET['is'] == "u") {
+            $id = $_GET['id'];
+            return $this->html(User::getOne($id));
+        } else {
+            $id = $_GET['id'];
+            return $this->html(Products::getOne($id));
+        }
     }
 }

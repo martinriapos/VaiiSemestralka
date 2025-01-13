@@ -6,9 +6,10 @@
 <div class="container-fluid" style="min-height:100vh">
     <div class="row">
         <div class="col">
+            <?php if($data instanceof \App\Models\User){ ?>
             <!-- Vrch text uvod -->
             <h2 class="text-center">Uprava profilu použivateľov</h2>
-            <form action="<?= $link->url("auth.editadmin", ["id" => $data->getId()])?>" method="post" class="custom-edituser-form">
+            <form action="<?= $link->url("auth.editadmin", ["id" => $data->getId(), "is" => "u"])?>" method="post" class="custom-edituser-form">
                 <!-- 1.label/header -->
                 <div class="form-group">
                     <label for="username">Username</label>
@@ -29,6 +30,35 @@
                     <button name="submit" type="submit" class="btn btn-primary">Upraviť profil</button>
                 </div>
             </form>
+            <?php } elseif ($data instanceof \App\Models\Products) { ?>
+                <!-- Vrch text uvod -->
+                <h2 class="text-center">Uprava produktov</h2>
+                <form action="<?= $link->url("auth.editadmin", ["id" => $data->getId(), "is" => "p"])?>" method="post" class="custom-edituser-form">
+                    <div class="form-group">
+                        <label for="productname">Productname</label>
+                        <input name="productname" type="text" id="productname" class="form-control" required value=<?= $data->getProductname() ?>>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input name="name" type="text" id="name" class="form-control" required value=<?= $data->getName() ?>>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input name="price" type="number" step="0.01" min="0" id="price" class="form-control" required value=<?= $data->getPrice() ?>>
+                    </div>
+                    <div class="form-group">
+                        <label for="stock">Stock</label>
+                        <input name="stock" type="number" id="stock" step="1" min="0" class="form-control" required value=<?= $data->getStock() ?>>
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Text</label>
+                        <input name="text" type="text" maxlength="500" id="text" class="form-control" required >
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button name="submit" type="submit" class="btn btn-primary">Upraviť produkt</button>
+                    </div>
+                </form>
+            <?php } ?>
         </div>
     </div>
 </div>

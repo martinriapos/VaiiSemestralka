@@ -3,6 +3,7 @@
 namespace App\Auth;
 
 use App\Core\IAuthenticator;
+use App\Models\Products;
 use App\Models\User;
 
 /**
@@ -138,5 +139,16 @@ class DummyAuthenticator implements IAuthenticator
     public function isAdmin(): bool
     {
         return isset($_SESSION['role']) && $_SESSION['role'] != 'user';
+    }
+
+    public function AdminEditProduct(mixed $id, mixed $productname, mixed $name, mixed $price, mixed $stock, mixed $text)
+    {
+        $product = Products::getOne($id);
+        $product->setProductname($productname);
+        $product->setPrice($name);
+        $product->setPrice($price);
+        $product->setStock($stock);
+        $product->setText($text);
+        $product->save();
     }
 }

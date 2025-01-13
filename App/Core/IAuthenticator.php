@@ -54,4 +54,6 @@ interface IAuthenticator
 
     public function editUser(mixed $username, mixed $password, mixed $email);
     public function AdminEditUser(mixed $userid, mixed $username, mixed $role, mixed $email);
+
+    public function AdminEditProduct(mixed $id, mixed $productname, mixed $name, mixed $price, mixed $stock, mixed $text);
 }
