@@ -9,7 +9,7 @@ class Orders extends \App\Core\Model
 
     protected ?int $id = null;
     protected ?int $user_id;
-    protected ?string $date;
+    protected ?string $order_date;
     protected ?string $status;
 
     public function getUserId(): ?int
@@ -24,12 +24,12 @@ class Orders extends \App\Core\Model
 
     public function getDate(): ?string
     {
-        return $this->date;
+        return $this->order_date;
     }
 
     public function setDate(?string $date): void
     {
-        $this->date = $date;
+        $this->order_date = $date;
     }
 
     public function getStatus(): ?string
@@ -40,5 +40,15 @@ class Orders extends \App\Core\Model
     public function setStatus(?string $status): void
     {
         $this->status = $status;
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
     }
 }

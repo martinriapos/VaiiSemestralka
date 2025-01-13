@@ -31,29 +31,3 @@
         </div>
     </div>
 </section>
-
-
-<div class="container" id="table">
-    <table class="table">
-        <thead>
-        <tr>
-            <th class="head">Kupujuci</th>
-            <th>Nakupil</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>Jozo</td>
-            <td>Protein</td>
-        </tr>
-        <tr>
-            <td>Fero</td>
-            <td>Shaker</td>
-        </tr>
-        <tr>
-            <td>Mirec</td>
-            <td>Trhačky</td>
-        </tr>
-        </tbody>
-    </table>
-</div>
