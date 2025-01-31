@@ -7,7 +7,6 @@
     <table class="table table-bordered" id="table2">
         <thead>
         <tr>
-            <th scope="col">Productname</th>
             <th scope="col">Name</th>
             <th scope="col">Price</th>
             <th scope="col">Stock</th>
@@ -19,7 +18,6 @@
         <tbody>
         <?php foreach ($data as $product): ?>
             <tr>
-                <th><?= $product->getProductname()?></th>
                 <td><?= $product->getName()?></td>
                 <td><?= $product->getPrice()?></td>
                 <td><?= $product->getStock()?></td>

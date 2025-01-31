@@ -14,7 +14,7 @@
                     </div>
                     <form class="form-signin" method="post" action="<?= $link->url("admin.addproduct") ?>">
                         <div class="form-label-group mb-3">
-                            <input name="productname" type="text" id="productname" class="form-control" placeholder="Product name" required autofocus>
+                            <input name="producturl" type="text" id="producturl" class="form-control" placeholder="ProductURL" required autofocus>
                         </div>
                         <div class="form-label-group mb-3">
                             <input name="name" type="text" id="name" class="form-control" placeholder="Name" required>
@@ -26,7 +26,7 @@
                             <input name="stock" type="number" step="1" min="0" id="stock" class="form-control" placeholder="Stock" required>
                         </div>
                         <div class="form-label-group mb-3">
-                            <input name="text" type="password" id="text" class="form-control" placeholder="Text" required>
+                            <input name="text" type="text" id="text" class="form-control" placeholder="Text" required>
                         </div>
                         <div class="text-center">
                             <button class="btn btn-primary" type="submit" name="submit">Pridať produkt

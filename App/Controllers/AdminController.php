@@ -29,7 +29,7 @@ class AdminController extends AControllerBase
     {
         $formData = $this->app->getRequest()->getPost();
         if (isset($formData['submit'])) {
-            $this->app->getAuth()->addproducts($formData['productname'], $formData['name'], $formData['price'], $formData['stock'], $formData['text']);
+            $this->app->getAuth()->addproducts($formData['producturl'], $formData['name'], $formData['price'], $formData['stock'], $formData['text']);
         }
         return $this->redirect($this->url("home.index"));
     }
@@ -44,7 +44,7 @@ class AdminController extends AControllerBase
             }
         } else {
             if (isset($formData['submit'])) {
-                $this->app->getAuth()->AdminEditProduct($_GET['id'], $formData['productname'], $formData['name'], $formData['price'], $formData['stock'], $formData['text']);
+                $this->app->getAuth()->AdminEditProduct($_GET['id'], $formData['producturl'], $formData['name'], $formData['price'], $formData['stock'], $formData['text']);
             }
         }
         return $this->redirect($this->url("home.index"));

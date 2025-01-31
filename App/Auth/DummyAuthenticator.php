@@ -148,10 +148,10 @@ class DummyAuthenticator implements IAuthenticator
         return isset($_SESSION['role']) && $_SESSION['role'] != 'user';
     }
 
-    public function AdminEditProduct(mixed $id, mixed $productname, mixed $name, mixed $price, mixed $stock, mixed $text)
+    public function AdminEditProduct(mixed $id, mixed $producturl, mixed $name, mixed $price, mixed $stock, mixed $text)
     {
         $product = Products::getOne($id);
-        $product->setProductname($productname);
+        $product->setProducturl($producturl);
         $product->setPrice($name);
         $product->setPrice($price);
         $product->setStock($stock);
@@ -159,11 +159,11 @@ class DummyAuthenticator implements IAuthenticator
         $product->save();
     }
 
-    public function addproducts(mixed $productname, mixed $name, mixed $price, mixed $stock, mixed $text)
+    public function addproducts(mixed $producturl, mixed $name, mixed $price, mixed $stock, mixed $text)
     {
 
         $product = new Products();
-        $product->setProductname($productname);
+        $product->setProducturl($producturl);
         $product->setName($name);
         $product->setPrice($price);
         $product->setStock($stock);

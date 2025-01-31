@@ -29,8 +29,8 @@
                 <h2 class="text-center">Uprava produktov</h2>
                 <form action="<?= $link->url("admin.editadmin", ["id" => $data->getId(), "is" => "p"])?>" method="post" class="custom-edituser-form">
                     <div class="form-group">
-                        <label for="productname">Productname</label>
-                        <input name="productname" type="text" id="productname" class="form-control" required value=<?= $data->getProductname() ?>>
+                        <label for="producturl">ProductURL</label>
+                        <input name="producturl" type="text" id="producturl" class="form-control" required value=<?= $data->getProducturl() ?>>
                     </div>
                     <div class="form-group">
                         <label for="name">Name</label>

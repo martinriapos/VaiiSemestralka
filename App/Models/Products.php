@@ -7,7 +7,7 @@ class Products extends \App\Core\Model
 {
     protected ?int $id = null;
     protected ?string $name;
-    protected ?string $productname;
+    protected ?string $producturl;
     protected ?string $price;
     protected ?string $stock;
     protected ?string $text;
@@ -62,14 +62,14 @@ class Products extends \App\Core\Model
         $this->text = $text;
     }
 
-    public function getProductname(): ?string
+    public function getProducturl(): ?string
     {
-        return $this->productname;
+        return $this->producturl;
     }
 
-    public function setProductname(?string $productname): void
+    public function setProducturl(?string $producturl): void
     {
-        $this->productname = $productname;
+        $this->producturl = $producturl;
     }
 
 }

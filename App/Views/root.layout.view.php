@@ -40,9 +40,11 @@
                     <li class="nav-item">
                         <a href="<?= $link->url("home.contact") ?>" class="nav-link btn btn-primary me-2">Kontakt</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="<?= $link->url("home.orders") ?>" class="nav-link btn btn-primary me-2">História nákupov</a>
-                    </li>
+                    <?php if ($auth->isLogged()) { ?>
+                        <li class="nav-item">
+                            <a href="<?= $link->url("home.orders") ?>" class="nav-link btn btn-primary me-2">História nákupov</a>
+                        </li>
+                    <?php } ?>
                 <?php } else { ?>
                     <li class="nav-item">
                         <a href="<?= $link->url("admin.index") ?>" class="nav-link btn btn-primary me-2">Admin panel</a>

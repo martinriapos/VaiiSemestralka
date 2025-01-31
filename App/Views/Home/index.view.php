@@ -18,7 +18,7 @@
             <?php foreach ($data as $product) { ?>
                 <div class="col">
                     <div class="card">
-                        <img src="old/images/<?= $product->getProductname() ?>.jpg" class="card-img-top" alt="šejker">
+                        <img src=<?= $product->getProductUrl()?> class="card-img-top" alt="<?= $product->getName()?>">
                         <div class="card-body">
                             <h3 class="card-title"><?=$product->getName()?></h3>
                             <p class="card-text"><?=$product->getText()?></p>
