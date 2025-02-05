@@ -98,9 +98,8 @@ class DummyAuthenticator implements IAuthenticator
     public function registration(mixed $username, mixed $password, mixed $email): void
     {
         $user = new User();
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
         $user->setUsername($username);
-        $user->setPassword($hashedPassword);
+        $user->setPassword($password);
         $user->setEmail($email);
         $user->setActive(1);
         $user->setRole("user");
@@ -126,9 +125,8 @@ class DummyAuthenticator implements IAuthenticator
     {
         $user = User::getOne($_SESSION['userid']);
         if ($user->getActive() == 1) {
-            $hashedpassword = password_hash($password, PASSWORD_BCRYPT);
             $user->setUsername($username);
-            $user->setPassword($hashedpassword);
+            $user->setPassword($password);
             $user->setEmail($email);
             $user->save();
         }

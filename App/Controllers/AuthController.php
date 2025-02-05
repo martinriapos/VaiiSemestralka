@@ -12,24 +12,30 @@ class AuthController extends AControllerBase
 
     public function index(): Response
     {
-        return $this->redirect(Configuration::LOGIN_URL);
+        if (!isset($_SESSION['user']) || $_SESSION['user'] <= 0) {
+            return $this->redirect(Configuration::LOGIN_URL);
+        }
+        return $this->redirect($this->url("home.index"));
     }
 
     public function login(): Response
     {
         $formData = $this->app->getRequest()->getPost();
-        $logged = null;
         if (isset($formData['submit'])) {
-            $logged = $this->app->getAuth()->login($formData['login'], $formData['password']);
+            $login = htmlspecialchars(($formData['login']));
+            $password = htmlspecialchars(($formData['password']));
+            if (empty($login) || empty($password)) {
+                return $this->html(['message' => 'Login a heslo nesmú byť prázdne.']);
+            }
+            $logged = $this->app->getAuth()->login($login, $password);
             if ($logged) {
                 $_SESSION['user'] = $this->app->getAuth()->getLoggedUserId();
                 return $this->redirect($this->url("home.index"));
-
+            } else {
+                return $this->html(['message' => 'Zlý login alebo heslo!']);
             }
         }
-
-        $data = ($logged === false ? ['message' => 'Zlý login alebo heslo!'] : []);
-        return $this->html($data);
+        return $this->html();
     }
 
     public function logout(): Response
@@ -42,8 +48,20 @@ class AuthController extends AControllerBase
     public function edit(): Response
     {
         $formData = $this->app->getRequest()->getPost();
+
         if (isset($formData['submit'])) {
-            $this->app->getAuth()->editUser($formData['username'], $formData['password'], $formData['email']);
+            $username = htmlspecialchars(($formData['username']));
+            $email = filter_var(($formData['email']), FILTER_VALIDATE_EMAIL);
+            $password = htmlspecialchars(($formData['password']));
+            if (!$username || !$email) {
+                throw new \Exception("Neplatné meno alebo email.");
+            }
+            if ($password !== "") {
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            } else {
+                throw new \Exception("Vyplňte heslo");
+            }
+            $this->app->getAuth()->editUser($username, $hashedPassword, $email);
         }
         return $this->redirect($this->url("home.index"));
     }
@@ -52,7 +70,14 @@ class AuthController extends AControllerBase
     {
         $formData = $this->app->getRequest()->getPost();
         if (isset($formData['submit'])) {
-            $this->app->getAuth()->registration($formData['username'], $formData['password'], $formData['email']);
+            $username = htmlspecialchars(($formData['username']));
+            $email = filter_var(($formData['email']), FILTER_VALIDATE_EMAIL);
+            $password = htmlspecialchars(($formData['password']));
+            if (!$username || !$email || !$password) {
+                throw new \Exception("Neplatné údaje.");
+            }
+            $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+            $this->app->getAuth()->registration($username, $hashedPassword, $email);
         }
         return $this->redirect($this->url("auth.login"));
     }

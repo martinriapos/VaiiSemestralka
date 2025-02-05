@@ -17,12 +17,20 @@ class AdminController extends AControllerBase
 
     public function edit(): Response
     {
-        if ($_GET['is'] == "u") {
+        if (isset($_GET['is'], $_GET['id'])) {
+            $is = $_GET['is'];
             $id = $_GET['id'];
-            return $this->html(User::getOne($id));
+            $allowedTypes = ['u', 'p'];
+            if (!in_array($is, $allowedTypes)) {
+                throw new \Exception("Neplatná hodnota parametra!");
+            }
+            if ($is === 'u') {
+                return $this->html(User::getOne($id));
+            } else {
+                return $this->html(Products::getOne($id));
+            }
         } else {
-            $id = $_GET['id'];
-            return $this->html(Products::getOne($id));
+            throw new \Exception("Chýbajúce parametre!");
         }
     }
 
@@ -30,7 +38,14 @@ class AdminController extends AControllerBase
     {
         $formData = $this->app->getRequest()->getPost();
         if (isset($formData['submit'])) {
-            $this->app->getAuth()->addproducts($formData['producturl'], $formData['name'], $formData['price'], $formData['stock'], $formData['text']);
+            $name = htmlspecialchars(($formData['name']));
+            $price = filter_var($formData['price'], FILTER_VALIDATE_FLOAT);
+            $stock = filter_var($formData['stock'], FILTER_VALIDATE_INT);
+            $text = htmlspecialchars(($formData['text']));
+            if (!$name || !$price || !$stock || !$text) {
+                return $this->html(['message' => 'Neplatné údaje']);
+            }
+            $this->app->getAuth()->addproducts($formData['producturl'], $name, $price, $stock, $text);
         }
         return $this->redirect($this->url("home.index"));
     }
@@ -38,14 +53,22 @@ class AdminController extends AControllerBase
     public function editadmin(): Response
     {
         $formData = $this->app->getRequest()->getPost();
+        $isEditUser = ($_GET['is'] == "u");
 
-        if ($_GET['is'] == "u") {
-            if (isset($formData['submit'])) {
-                $this->app->getAuth()->AdminEditUser($_GET['id'], $formData['username'], $formData['role'], $formData['email']);
+        if ($isEditUser) {
+            $username = htmlspecialchars(($formData['username']));
+            $role = htmlspecialchars(($formData['role']));
+            $email = filter_var($formData['email'], FILTER_VALIDATE_EMAIL);
+            if (isset($formData['submit']) && $username && $role && $email) {
+                $this->app->getAuth()->AdminEditUser($_GET['id'], $username, $role, $email);
             }
         } else {
-            if (isset($formData['submit'])) {
-                $this->app->getAuth()->AdminEditProduct($_GET['id'], $formData['producturl'], $formData['name'], $formData['price'], $formData['stock'], $formData['text']);
+            $name = htmlspecialchars(($formData['name']));
+            $price = filter_var($formData['price'], FILTER_VALIDATE_FLOAT);
+            $stock = filter_var($formData['stock'], FILTER_VALIDATE_INT);
+            $text = htmlspecialchars(($formData['text']));
+            if (isset($formData['submit']) && $name && $price && $stock && $text) {
+                $this->app->getAuth()->AdminEditProduct($_GET['id'], $formData['producturl'], $name, $price, $stock, $text);
             }
         }
         return $this->redirect($this->url("home.index"));
@@ -54,30 +77,46 @@ class AdminController extends AControllerBase
     public function editusers(): Response
     {
         $data = User::getAll();
+        if (!$data) {
+            throw new \Exception("Žiadny užívatelia neboli nájdení");
+        }
         return $this->html($data);
     }
 
     public function editproducts(): Response
     {
         $data = Products::getAll();
+        if (!$data) {
+            throw new \Exception("Žiadne produkty neboli nájdené");
+        }
         return $this->html($data);
     }
 
     public function addproducts(): Response
     {
-        return $this->html();
+        $data = Products::getAll();
+        if (!$data) {
+            throw new \Exception("Žiadne produkty neboli nájdené");
+        }
+        return $this->html($data);
     }
 
     public function deleteproduct(): Response
     {
-        $this->app->getAuth()->deleteProduct($_GET['id']);
+        if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT)) {
+            $this->app->getAuth()->deleteProduct($_GET['id']);
+        } else {
+            throw new \Exception("Neplatné ID produktu");
+        }
         return $this->redirect($this->url("home.index"));
     }
 
     public function reviews(): Response
     {
-
         $data = Reviews::getAll();
+        if (!$data) {
+            throw new \Exception("Žiadne recenzie neboli nájdené");
+        }
         return $this->html($data);
     }
 }

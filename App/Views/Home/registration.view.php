@@ -13,7 +13,7 @@
 
 <div class="container d-flex justify-content-center align-items-center">
     <div class="row">
-        <div class="col">
+        <div class="col" id="responseMessage">
             <h2 class="text-center">Registrácia</h2>
             <form action="<?= $link->url("auth.registration")?>" method="post" class="custom-registration-form">
                 <div class="form-group">

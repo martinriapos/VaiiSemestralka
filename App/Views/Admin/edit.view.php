@@ -19,7 +19,10 @@
                 </div>
                 <div class="form-group">
                     <label for="role">Role</label>
-                    <input name="role" type="text" id="role" class="form-control" required value=<?= $data->getRole() ?>>
+                    <select name="role" id="role" class="form-control" required>
+                        <option value="user" <?= ($data->getRole() === "user") ? "selected" : "" ?>>user</option>
+                        <option value="admin" <?= ($data->getRole() === "admin") ? "selected" : "" ?>>admin</option>
+                    </select>
                 </div>
                 <div class="d-flex justify-content-center">
                     <button name="submit" type="submit" class="btn btn-primary">Upraviť profil</button>
