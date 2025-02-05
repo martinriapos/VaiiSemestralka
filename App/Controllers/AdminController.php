@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Core\AControllerBase;
 use App\Core\Responses\Response;
 use App\Models\Products;
+use App\Models\Reviews;
 use App\Models\User;
 
 class AdminController extends AControllerBase
@@ -71,5 +72,12 @@ class AdminController extends AControllerBase
     {
         $this->app->getAuth()->deleteProduct($_GET['id']);
         return $this->redirect($this->url("home.index"));
+    }
+
+    public function reviews(): Response
+    {
+
+        $data = Reviews::getAll();
+        return $this->html($data);
     }
 }

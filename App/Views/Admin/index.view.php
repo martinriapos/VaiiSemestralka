@@ -13,6 +13,7 @@
                     <a id="adminLink" href="<?= $link->url("admin.editusers") ?>" class="nav-link btn btn-secondary">Úprava uživateľov</a>
                     <a id="adminLink" href="<?= $link->url("admin.addproducts") ?>" class="nav-link btn btn-secondary">Pridanie produktov</a>
                     <a id="adminLink" href="<?= $link->url("admin.editproducts") ?>" class="nav-link btn btn-secondary">Úprava Produktov</a>
+                    <a id="adminLink" href="<?= $link->url("admin.reviews") ?>" class="nav-link btn btn-secondary">Zobrazenie recenzii</a>
                 </ul>
             </div>
         </div>

@@ -19,11 +19,11 @@
             <form action="<?= $link->url("auth.edit")?>" method="post" class="custom-registration-form">
                 <div class="form-group">
                     <label for="username">Používateľské meno</label>
-                    <input name="username" type="text" id="username" class="form-control" required>
+                    <input name="username" type="text" id="username" class="form-control" required value=<?= isset($_SESSION['username']) ? $_SESSION['username'] : ""?>>
                 </div>
                 <div class="form-group">
                     <label for="email">E-mail</label>
-                    <input name="email" type="email" id="email" class="form-control" required>
+                    <input name="email" type="email" id="email" class="form-control" required value=<?= isset($_SESSION['email']) ? $_SESSION['email'] : ""?>>
                 </div>
                 <div class="form-group">
                     <label for="password">Heslo</label>
