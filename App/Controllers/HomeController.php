@@ -15,8 +15,7 @@ class HomeController extends AControllerBase
 {
     public function index(): Response
     {
-        $data = Products::getAll();
-        return $this->html($data);
+        return $this->html(Products::getAll());
     }
 
     public function delete(): Response
@@ -92,4 +91,22 @@ class HomeController extends AControllerBase
         $this->app->getAuth()->addReview($formData['user_id'], $formData['produkt'], $formData['hodnotenie'], $formData['text']);
         return $this->redirect($this->url("home.index"));
     }
+
+    public function products(): Response
+    {
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $perPage = 3; // Počet produktov na stránku
+        $offset = ($page - 1) * $perPage;
+
+        $products = Products::getAll(limit: $perPage, offset: $offset);
+        $totalProducts = count(Products::getAll());// Metóda na získanie celkového počtu produktov
+        $totalPages = ceil($totalProducts / $perPage);
+
+        if ($this->app->getRequest()->isAjax()) {
+            return $this->json(['products' => $products, 'totalPages' => $totalPages]);
+        }
+
+        return $this->html(['products' => $products, 'totalPages' => $totalPages, 'currentPage' => $page]);
+    }
+
 }

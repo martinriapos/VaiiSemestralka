@@ -92,6 +92,11 @@ class AdminController extends AControllerBase
 
     public function editusers(): Response
     {
+        if ($this->app->getRequest()->isAjax()) {
+            $data = User::getAll();
+            return $this->json($data);
+        }
+
         $data = User::getAll();
         if (!$data) {
             throw new \Exception("Žiadny užívatelia neboli nájdení");

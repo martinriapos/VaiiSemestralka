@@ -15,15 +15,40 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($data as $user): ?>
-            <tr>
-                <th><?= $user->getUsername()?></th>
-                <td><?= $user->getEmail()?></td>
-                <td><?= $user->getRole()?></td>
-                <td><?= $user->getActive()?></td>
-                <td><a href="<?= $link->url("admin.edit", ["id" => $user->getId(), "is" => "u"]) ?>" class="nav-link active btn btn-secondary">Upraviť</a></td>
-            </tr>
-        <?php endforeach; ?>
+
         </tbody>
     </table>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function loadUsers() {
+            fetch("<?= $link->url('admin.editusers') ?>", {
+                method: "GET",
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest"
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    let tableBody = document.querySelector("tbody");
+                    tableBody.innerHTML = "";
+                    data.forEach(user => {
+                        let row = `
+                    <tr>
+                        <th>${user.username}</th>
+                        <td>${user.email}</td>
+                        <td>${user.role}</td>
+                        <td>${user.active}</td>
+                        <td><a href="?c=admin&a=edit&id=${user.id}&is=u" class="nav-link active btn btn-secondary">Upraviť</a></td>
+                    </tr>
+                `;
+                        tableBody.innerHTML += row;
+                    });
+                })
+                .catch(error => console.error("Chyba pri načítaní užívateľov:", error));
+        }
+        loadUsers();
+        setInterval(loadUsers, 10000);
+    });
+</script>
