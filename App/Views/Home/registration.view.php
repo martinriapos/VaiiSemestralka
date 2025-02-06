@@ -1,7 +1,6 @@
 <?php
 
 /** @var \App\Core\LinkGenerator $link */
-
 ?>
 
 <section class="bg-primary text-white text-center py-5">
@@ -15,6 +14,9 @@
     <div class="row">
         <div class="col" id="responseMessage">
             <h2 class="text-center">Registrácia</h2>
+            <div class="text-center text-danger mb-3">
+                <?= @$_GET['0'] ?>
+            </div>
             <form action="<?= $link->url("auth.registration")?>" method="post" class="custom-registration-form">
                 <div class="form-group">
                     <label for="username">Používateľské meno</label>

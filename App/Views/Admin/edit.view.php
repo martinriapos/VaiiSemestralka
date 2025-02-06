@@ -20,8 +20,8 @@
                 <div class="form-group">
                     <label for="role">Role</label>
                     <select name="role" id="role" class="form-control" required>
-                        <option value="user" <?= ($data->getRole() === "user") ? "selected" : "" ?>>user</option>
-                        <option value="admin" <?= ($data->getRole() === "admin") ? "selected" : "" ?>>admin</option>
+                        <option value="user" <?= ($data->getRole() == "user") ? "selected" : "" ?>>user</option>
+                        <option value="admin" <?= ($data->getRole() == "admin") ? "selected" : "" ?>>admin</option>
                     </select>
                 </div>
                 <div class="d-flex justify-content-center">
@@ -55,7 +55,24 @@
                         <button name="submit" type="submit" class="btn btn-primary">Upraviť produkt</button>
                     </div>
                 </form>
+            <?php } elseif ($data instanceof \App\Models\Reviews) { ?>
+                <h2 class="text-center">Uprava recenzií</h2>
+                <form action="<?= $link->url("admin.editadmin", ["id" => $data->getId(), "is" => "r"])?>" method="post" class="custom-edituser-form">
+                    <div class="form-group">
+                        <label for="rating">Rating</label>
+                        <input name="rating" type="text" id="rating" class="form-control" required value=<?= $data->getRating() ?>>
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Text</label>
+                        <input name="text" type="text" id="text" class="form-control" required value=<?= $data->getText() ?>>
+                    </div>
+                    <input type="hidden" name="id" value="<?= $data->getId()?>">
+                    <div class="d-flex justify-content-center">
+                        <button name="submit" type="submit" class="btn btn-primary">Upraviť produkt</button>
+                    </div>
+                </form>
             <?php } ?>
+
         </div>
     </div>
 </div>

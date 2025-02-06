@@ -60,4 +60,10 @@ interface IAuthenticator
     public function deleteProduct(mixed $id);
 
     public function addproducts(mixed $productname, mixed $name, mixed $price, mixed $stock, mixed $text);
+
+    public function deleteReview(mixed $id);
+
+    public function addReview(mixed $user_id, mixed $produkt, mixed $hodnotenie, mixed $text);
+
+    public function AdminEditReview(mixed $id, mixed $text, mixed $rating);
 }

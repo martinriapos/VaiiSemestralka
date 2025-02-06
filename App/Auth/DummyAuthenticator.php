@@ -4,6 +4,7 @@ namespace App\Auth;
 
 use App\Core\IAuthenticator;
 use App\Models\Products;
+use App\Models\Reviews;
 use App\Models\User;
 
 /**
@@ -121,6 +122,12 @@ class DummyAuthenticator implements IAuthenticator
         $product->delete();
     }
 
+    public function deleteReview(mixed $id)
+    {
+        $review = Reviews::getOne($id);
+        $review->delete();
+    }
+
     public function editUser(mixed $username, mixed $password, mixed $email): void
     {
         $user = User::getOne($_SESSION['userid']);
@@ -169,5 +176,23 @@ class DummyAuthenticator implements IAuthenticator
         $product->setStock($stock);
         $product->setText($text);
         $product->save();
+    }
+
+    public function addReview(mixed $user_id, mixed $produkt, mixed $hodnotenie, mixed $text)
+    {
+        $review = new Reviews();
+        $review->setUserId($user_id);
+        $review->setProductId($produkt);
+        $review->setText($text);
+        $review->setRating($hodnotenie);
+        $review->save();
+    }
+
+    public function AdminEditReview(mixed $id, mixed $text, mixed $rating)
+    {
+        $review = Reviews::getOne($id);
+        $review->setText($text);
+        $review->setRating($rating);
+        $review->save();
     }
 }

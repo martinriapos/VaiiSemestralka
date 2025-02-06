@@ -7,6 +7,7 @@ use App\Core\Responses\Response;
 use App\Models\Orderproducts;
 use App\Models\Orders;
 use App\Models\Products;
+use App\Models\Reviews;
 use App\Models\User;
 use mysql_xdevapi\Exception;
 
@@ -67,5 +68,28 @@ class HomeController extends AControllerBase
             throw new \Exception("Informácie o objednávke neboli nájdené..");
         }
         return $this->html($data);
+    }
+
+    public function addreviews(): Response
+    {
+        $produkty = Products::getAll();
+        $user = User::getOne($_SESSION['userid']);
+        if (!$user || !$produkty) {
+            throw new \Exception("Žiadne dáta neboli nájdené");
+        }
+        return $this->html([
+            'products' => $produkty,
+            'user' => $user
+        ]);
+    }
+
+    public function addreview(): Response
+    {
+        $formData = $this->app->getRequest()->getPost();
+        if (!$formData) {
+            throw new \Exception("Informácie o recenzií neboli nájdené!");
+        }
+        $this->app->getAuth()->addReview($formData['user_id'], $formData['produkt'], $formData['hodnotenie'], $formData['text']);
+        return $this->redirect($this->url("home.index"));
     }
 }

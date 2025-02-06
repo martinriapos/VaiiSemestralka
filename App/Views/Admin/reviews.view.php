@@ -11,6 +11,8 @@
             <th scope="col">Product</th>
             <th scope="col">Rating</th>
             <th scope="col">Text</th>
+            <th scope="col">Zmazanie</th>
+            <th scope="col">Úprava</th>
         </tr>
         </thead>
         <tbody>
@@ -22,6 +24,8 @@
                 <td><?=$product->getName()?></td>
                 <td><?=$review->getRating()?></td>
                 <td><?=$review->getText()?></td>
+                <td><a href="<?= $link->url("admin.edit", ["id" => $review->getId(), "is" => "r"]) ?>" class="nav-link active btn btn-secondary">Upraviť</a></td>
+                <td><a href="<?= $link->url("admin.deletereview", ["id" => $review->getId()]) ?>" class="nav-link active btn btn-secondary">Vymazať</a></td>
             </tr>
         <?php } ?>
         </tbody>

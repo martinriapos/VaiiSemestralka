@@ -73,8 +73,13 @@ class AuthController extends AControllerBase
             $username = htmlspecialchars(($formData['username']));
             $email = filter_var(($formData['email']), FILTER_VALIDATE_EMAIL);
             $password = htmlspecialchars(($formData['password']));
-            if (!$username || !$email || !$password) {
-                throw new \Exception("Neplatné údaje.");
+            $confirmPassword = htmlspecialchars(($formData['confirmPassword']));
+            if ($password !== $confirmPassword) {
+                $data['message'] ='Hesla sa nezhodujú';
+                return $this->redirect($this->url("home.registration", [$data['message']]));
+            }
+            if (!$username || !$email || !$password || !$confirmPassword) {
+                return $this->html(['message' => 'neplatne údaje.']);
             }
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
             $this->app->getAuth()->registration($username, $hashedPassword, $email);

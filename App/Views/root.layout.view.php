@@ -44,6 +44,9 @@
                         <li class="nav-item">
                             <a href="<?= $link->url("home.orders") ?>" class="nav-link btn btn-primary me-2">História nákupov</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?= $link->url("home.addreviews") ?>" class="nav-link btn btn-primary me-2">Pridať Recenzie</a>
+                        </li>
                     <?php } ?>
                 <?php } else { ?>
                     <li class="nav-item">

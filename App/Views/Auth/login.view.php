@@ -12,7 +12,7 @@ $layout = 'auth';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="old/css/style.css">
 </head>
-
+<body>
 <div class="container">
     <div class="row">
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -33,7 +33,7 @@ $layout = 'auth';
                                    placeholder="Password" required>
                         </div>
                         <div class="text-center">
-                            <button class="btn btn-primary" type="submit" name="submit">Prihlásiť
+                            <button class="btn btn-primary" type="submit" id="btn-submit" name="submit">Prihlásiť
                             </button>
                         </div>
                     </form>
@@ -42,3 +42,4 @@ $layout = 'auth';
         </div>
     </div>
 </div>
+</body>
