@@ -17,6 +17,9 @@
         <div class="col">
             <h2 class="text-center">Uprava profilu</h2>
             <form action="<?= $link->url("auth.edit")?>" method="post" class="custom-registration-form">
+                <div class="text-center text-danger mb-3">
+                    <?= @$_GET['0'] ?>
+                </div>
                 <div class="form-group">
                     <label for="username">Používateľské meno</label>
                     <input name="username" type="text" id="username" class="form-control" required value=<?= isset($_SESSION['username']) ? $_SESSION['username'] : ""?>>

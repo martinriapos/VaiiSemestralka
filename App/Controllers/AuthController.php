@@ -53,13 +53,20 @@ class AuthController extends AControllerBase
             $username = htmlspecialchars(($formData['username']));
             $email = filter_var(($formData['email']), FILTER_VALIDATE_EMAIL);
             $password = htmlspecialchars(($formData['password']));
+            $confirmPassword = htmlspecialchars(($formData['confirmPassword']));
+            if ($password != $confirmPassword) {
+                $data['message'] ='Hesla sa nezhodujú';
+                return $this->redirect($this->url("home.edit", [$data['message']]));
+            }
             if (!$username || !$email) {
-                throw new \Exception("Neplatné meno alebo email.");
+                $data['message'] ='Neplatné meno alebo email.';
+                return $this->redirect($this->url("home.edit", [$data['message']]));
             }
             if ($password !== "") {
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             } else {
-                throw new \Exception("Vyplňte heslo");
+                $data['message'] ='Vyplňte heslo';
+                return $this->redirect($this->url("home.edit", [$data['message']]));
             }
             $this->app->getAuth()->editUser($username, $hashedPassword, $email);
         }
@@ -79,7 +86,8 @@ class AuthController extends AControllerBase
                 return $this->redirect($this->url("home.registration", [$data['message']]));
             }
             if (!$username || !$email || !$password || !$confirmPassword) {
-                return $this->html(['message' => 'neplatne údaje.']);
+                $data['message'] ='Nespravne udaje';
+                return $this->redirect($this->url("home.registration", [$data['message']]));
             }
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
             $this->app->getAuth()->registration($username, $hashedPassword, $email);

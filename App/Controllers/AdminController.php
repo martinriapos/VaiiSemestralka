@@ -45,7 +45,8 @@ class AdminController extends AControllerBase
             $stock = filter_var($formData['stock'], FILTER_VALIDATE_INT);
             $text = htmlspecialchars(($formData['text']));
             if (!$name || !$price || !$stock || !$text) {
-                return $this->html(['message' => 'Neplatné údaje']);
+                $data['message'] ='Nesprávné údaje';
+                return $this->redirect($this->url("admin.addproducts", [$data['message']]));
             }
             $this->app->getAuth()->addproducts($formData['producturl'], $name, $price, $stock, $text);
         }
@@ -63,7 +64,7 @@ class AdminController extends AControllerBase
             if (isset($formData['submit']) && $username && $role && $email) {
                 $this->app->getAuth()->AdminEditUser($_GET['id'], $username, $role, $email);
             } else {
-                throw new \Exception("zle");
+                throw new \Exception("Nespravne udaje");
             }
         } else if ($_GET['is'] == "p"){
             $name = htmlspecialchars(($formData['name']));
@@ -73,7 +74,7 @@ class AdminController extends AControllerBase
             if (isset($formData['submit']) && $name && $price && $stock && $text) {
                 $this->app->getAuth()->AdminEditProduct($_GET['id'], $formData['producturl'], $name, $price, $stock, $text);
             } else {
-                throw new \Exception("zle");
+                throw new \Exception("Nespravne udaje");
             }
         } else {
             $text = htmlspecialchars(($formData['text']));
@@ -84,7 +85,7 @@ class AdminController extends AControllerBase
             if (isset($formData['submit']) && $rating && $text) {
                 $this->app->getAuth()->AdminEditReview($_GET['id'], $text, $rating);
             } else {
-                throw new \Exception("zle");
+                throw new \Exception("Nespravne udaje");
             }
         }
         return $this->redirect($this->url("home.index"));

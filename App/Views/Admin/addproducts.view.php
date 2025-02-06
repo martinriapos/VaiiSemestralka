@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <h5 class="card-title text-center">Pridanie produktu</h5>
                     <div class="text-center text-danger mb-3">
-                        <?= @$data['message'] ?>
+                        <?= @$_GET['0'] ?>
                     </div>
                     <form class="form-signin" method="post" action="<?= $link->url("admin.addproduct") ?>">
                         <div class="form-label-group mb-3">
